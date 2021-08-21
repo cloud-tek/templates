@@ -1,7 +1,7 @@
-using Demo.Job.Services;
 using Ion;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProjectName.ServiceName.Services;
 
 namespace ProjectName.ServiceName
 {

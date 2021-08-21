@@ -4,6 +4,10 @@
     "project": {
       "longName": "project",
       "shortName": "pr"
+    },
+    "service": {
+      "longName": "service",
+      "shortName": "svc"
     }
   }
 }

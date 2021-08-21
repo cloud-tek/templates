@@ -1,14 +1,18 @@
-﻿using System;
+﻿using System.Threading.Tasks;
+using Ion;
+using Ion.Logging;
+using Ion.Elasticsearch;
+using Ion.Metrics;
 
 namespace ProjectName.ServiceName
 {
     public class Program
     {
-        public const string ServiceName = "demo-job";
+        public const string Name = "ProjectNameLower-ServiceNameLower-job";
 
         public static async Task Main(string[] args)
         {
-            var service = new Ion.Job<Startup>(ServiceName)
+            var service = new Job<Startup>(Name)
                 .WithMetrics()
                 .WithLogging(log =>
                     log

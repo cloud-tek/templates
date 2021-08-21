@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "CloudTek",
-  "classifications": ["Console", "Job"],
+  "classifications": ["Ion", "Job"],
   "identity": "Ion.Job",
   "name": "Ion Job",
   "shortName": "ion-job",
@@ -14,9 +14,37 @@
       "description": "Project name",
       "type": "parameter",
       "datatype": "text",
-      "replaces": "Project",
-      "fileRename": "Project",
+      "replaces": "ProjectName",
+      "fileRename": "ProjectName",
       "defaultValue": "Ionizd"
+    },
+    "projectLowercase": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "project",
+        "toLower": true
+      },
+      "replaces": "ProjectNameLower",
+      "fileRename": "ProjectNameLower"
+    },
+    "service": {
+      "description": "Service name",
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "ServiceName",
+      "fileRename": "ServiceName",
+      "defaultValue": "Service"
+    },
+    "serviceLowercase": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "service",
+        "toLower": true
+      },
+      "replaces": "ServiceNameLower",
+      "fileRename": "ServiceNameLower"
     },
     "readme": {
       "type": "parameter",
@@ -42,6 +70,17 @@
           "condition": "(!license)",
           "exclude": [
             "LICENSE"
+          ]
+        },
+        {
+          "exclude": [
+            "**/[Bb]in/**",
+            "**/[Oo]bj/**",
+            ".template.config/**/*",
+            "**/*.filelist",
+            "**/*.user",
+            "**/*.lock.json",
+            "**/.idea/**"
           ]
         }
       ]

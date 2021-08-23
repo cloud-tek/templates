@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace ProjectName.ServiceName.Services
+namespace ProjectName.ServiceName.Job.Services
 {
     public class JobHostedService : IHostedService
     {

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.ServiceName", "ProjectNameLower-ServiceNameLower-job/src/ProjectName.ServiceName\ProjectName.ServiceName.csproj", "{ED01A168-9B55-4F91-9D2B-38B1050D3165}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.ServiceName.Job", "ProjectNameLower-ServiceNameLower-job/src/ProjectName.ServiceName.Job\ProjectName.ServiceName.Job.csproj", "{ED01A168-9B55-4F91-9D2B-38B1050D3165}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

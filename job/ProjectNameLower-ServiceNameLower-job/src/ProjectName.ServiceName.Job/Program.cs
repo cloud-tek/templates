@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Ion;
 using Ion.Logging;
-using Ion.Elasticsearch;
+using Ion.Logging.Elasticsearch;
 using Ion.Metrics;
 
-namespace ProjectName.ServiceName
+namespace ProjectName.ServiceName.Job
 {
     public class Program
     {

@@ -1,9 +1,9 @@
 using Ion;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProjectName.ServiceName.Services;
+using ProjectName.ServiceName.Job.Services;
 
-namespace ProjectName.ServiceName
+namespace ProjectName.ServiceName.Job
 {
     public class Startup : MicroServiceStartup
     {

@@ -46,12 +46,7 @@
       "replaces": "ServiceNameLower",
       "fileRename": "ServiceNameLower"
     },
-    "readme": {
-      "type": "parameter",
-      "datatype":"bool",
-      "defaultValue": "true"
-    },
-    "license": {
+    "solution": {
       "type": "parameter",
       "datatype":"bool",
       "defaultValue": "true"
@@ -61,15 +56,27 @@
     {
       "modifiers": [
         {
-          "condition": "(!readme)",
+          "condition": "(!solution)",
           "exclude": [
             "readme.md"
           ]
         },
         {
-          "condition": "(!license)",
+          "condition": "(!solution)",
           "exclude": [
             "LICENSE"
+          ]
+        },
+        {
+          "condition": "(!solution)",
+          "exclude": [
+            ".editorconfig"
+          ]
+        },
+        {
+          "condition": "(!solution)",
+          "exclude": [
+            "*.sln"
           ]
         },
         {

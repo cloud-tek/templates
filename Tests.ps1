@@ -34,27 +34,26 @@ Describe -tag "E2ETest" -Name "ion-job" {
 
     New-Item -Name "tests" -ItemType "directory";
 
-    Push-Location "$PSScriptRoot/tests";
+    try {
+      Push-Location "$PSScriptRoot/tests";
 
-    dotnet new ion-$SVC --project "Project" --service "Service"
+      & dotnet new ion-$SVC --project "Project" --service "Service"
+    } finally {
+      Pop-Location;
+    }
 
-    Push-Location "$PSScriptRoot/tests/project-service-$SVC/src/Project.Service.Job";
+    try {
+      Push-Location "$PSScriptRoot/tests/project-service-$SVC/src/Project.Service.Job";
 
-    dotnet restore 
+      & dotnet restore 
 
-    $LASTEXITCODE | Should -Be 0 -Because "dotnet restore should pass for $SVC";
+      $LASTEXITCODE | Should -Be 0 -Because "dotnet restore should pass for $SVC";
 
-    dotnet build --no-restore
+      & dotnet build --no-restore
 
-    $LASTEXITCODE | Should -Be 0 -Because "dotnet build should pass for $SVC";
-
-    Pop-Location;
-    Pop-Location;
+      $LASTEXITCODE | Should -Be 0 -Because "dotnet build should pass for $SVC";
+    } finally {
+      Pop-Location;
+    }
   }
-
-  # It "Should throw test" {
-  #   {
-  #     # something in here
-  #   } | Should -Throw "error message"
-  # }
 }

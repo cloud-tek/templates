@@ -11,5 +11,6 @@
         <PackageReference Include="Ion.Logging" Version="0.*" />
         <PackageReference Include="Ion.Logging.Elasticsearch" Version="0.*" />
         <PackageReference Include="Ion.Metrics" Version="0.*" />
+        <PackageReference Include="Ion.Analyzers" Version="0.*" />
     </ItemGroup>
 </Project>

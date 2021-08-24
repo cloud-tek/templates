@@ -1,4 +1,4 @@
-name: CI
+name: ci
 
 on:
   pull_request:
@@ -13,8 +13,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: build ${{ matrix.dotnet-version }} on ${{ matrix.os }}
+  render-templates:
+    name: render templates ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix: 
@@ -23,7 +23,7 @@ jobs:
         - windows-latest
         - macos-latest
         dotnet-version:
-        - '5.0.101'
+        - '5.0.400'
     steps:
     - uses: actions/checkout@v2
       with:

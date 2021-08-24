@@ -38,15 +38,15 @@ Describe -tag "E2ETest" -Name "ion-job" {
 
     dotnet new ion-$SVC --project "Project" --service "Service"
 
-    Push-Location "$PSScriptRoot/tests/project-service-$SVC/src/Project.Service";
+    Push-Location "$PSScriptRoot/tests/project-service-$SVC/src/Project.Service.Job";
 
     dotnet restore 
 
-    $LASTEXITCODE | Should -Be 0;
+    $LASTEXITCODE | Should -Be 0 -Because "dotnet restore should pass for $SVC";
 
     dotnet build --no-restore
 
-    $LASTEXITCODE | Should -Be 0;
+    $LASTEXITCODE | Should -Be 0 -Because "dotnet build should pass for $SVC";
 
     Pop-Location;
     Pop-Location;

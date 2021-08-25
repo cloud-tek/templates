@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-ion-job:
+  build-ion-services:
     name: build ion-${{ matrix.svc }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -78,7 +78,7 @@ jobs:
     name: render templates ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs:
-    - ion-jon
+    - build-ion-services
     strategy:
       matrix: 
         os: 

@@ -13,65 +13,72 @@ on:
   workflow_dispatch:
 
 jobs:
-  # build-ion-job:
-  #   name: build ion-job
-  #   runs-on: ${{ matrix.os }}
-  #   strategy:
-  #     matrix: 
-  #       os: 
-  #       - ubuntu-latest
-  #       - windows-latest
-  #       - macos-latest
-  #       dotnet-version:
-  #       - '5.0.400'
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #     with:
-  #       fetch-depth: '0'
-  #   - name: nuget.config (pwsh)
-  #     shell: pwsh
-  #     run: |
-  #       $nuget = @"
-  #       <?xml version="1.0" encoding="utf-8"?>
-  #       <configuration>
-  #         <packageSources>
-  #           <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
-  #           <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED }}" protocolVersion="3"/>
-  #         </packageSources>
-  #         <packageRestore>
-  #           <add key="enabled" value="True" />
-  #           <add key="automatic" value="True" />
-  #         </packageRestore>
-  #         <bindingRedirects>
-  #           <add key="skip" value="False" />
-  #         </bindingRedirects>
-  #         <packageManagement>
-  #           <add key="format" value="0" />
-  #           <add key="disabled" value="False" />
-  #         </packageManagement>
-  #         <packageSourceCredentials>
-  #           <nuget.cloudtek.io>
-  #             <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
-  #             <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
-  #           </nuget.cloudtek.io>
-  #         </packageSourceCredentials>
-  #       </configuration>
-  #       "@
+  build-ion-job:
+    name: build ion-${{ matrix.svc }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        svc:
+        - job
+        os: 
+        - ubuntu-latest
+        - windows-latest
+        - macos-latest
+        dotnet-version:
+        - '5.0.400'
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: nuget.config (pwsh)
+      shell: pwsh
+      run: |
+        $nuget = @"
+        <?xml version="1.0" encoding="utf-8"?>
+        <configuration>
+          <packageSources>
+            <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+            <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED }}" protocolVersion="3"/>
+          </packageSources>
+          <packageRestore>
+            <add key="enabled" value="True" />
+            <add key="automatic" value="True" />
+          </packageRestore>
+          <bindingRedirects>
+            <add key="skip" value="False" />
+          </bindingRedirects>
+          <packageManagement>
+            <add key="format" value="0" />
+            <add key="disabled" value="False" />
+          </packageManagement>
+          <packageSourceCredentials>
+            <nuget.cloudtek.io>
+              <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
+              <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
+            </nuget.cloudtek.io>
+          </packageSourceCredentials>
+        </configuration>
+        "@
 
-  #       $nuget | Out-File -FilePath ${{ github.workspace }}/nuget.config
-  #   - name: dotnet tool restore
-  #     run: dotnet tool restore
-  #     shell: bash
-  #   - uses: actions/setup-dotnet@v1
-  #     name: dotnet installer
-  #     with:
-  #       dotnet-version: ${{ matrix.dotnet-version }}
+        $nuget | Out-File -FilePath ${{ github.workspace }}/nuget.config
+    - name: dotnet tool restore
+      run: dotnet tool restore
+      shell: bash
+    - uses: actions/setup-dotnet@v1
+      name: dotnet installer
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+    - name: dotnet restore
+      run: |
+        dotnet restore ProjectName.sln
+      shell: bash
+      working-directory: ${{ matrix.svc }}
 
   render-templates:
     name: render templates ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    # needs:
-    # - ion-jon
+    needs:
+    - ion-jon
     strategy:
       matrix: 
         os: 

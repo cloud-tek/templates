@@ -14,7 +14,7 @@ on:
 
 jobs:
   build-ion-services:
-    name: build ion-${{ matrix.svc }}
+    name: build ion-${{ matrix.svc }} (${{ matrix.dotnet-version }} on ${{ matrix/os }})
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:

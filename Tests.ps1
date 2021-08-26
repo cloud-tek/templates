@@ -3,6 +3,7 @@ Import-Module "Pester";
 Describe -tag "E2ETest" -Name "ion-job" {
   It "Should render template with solution for each <svc> service " -ForEach @(
     @{ "SVC" = "job" }
+    @{ "SVC" = "microservice" }
   ) {
     
     Remove-Item -Path "tests" -Recurse -Force -ErrorAction Ignore;

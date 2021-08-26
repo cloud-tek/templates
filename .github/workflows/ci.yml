@@ -102,7 +102,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
-- name: nuget.config (pwsh)
+    - name: nuget.config (pwsh)
       shell: pwsh
       run: |
         $nuget = @"

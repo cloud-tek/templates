@@ -79,6 +79,11 @@ jobs:
         dotnet restore ProjectName.sln
       shell: bash
       working-directory: ${{ matrix.svc }}
+    - name: dotnet build
+      run: |
+        dotnet build ProjectName.sln
+      shell: bash
+      working-directory: ${{ matrix.svc }}
 
   render-templates:
     name: render templates ${{ matrix.dotnet-version }} on ${{ matrix.os }}
@@ -97,7 +102,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
-    - name: nuget.config (pwsh)
+- name: nuget.config (pwsh)
       shell: pwsh
       run: |
         $nuget = @"
@@ -105,7 +110,8 @@ jobs:
         <configuration>
           <packageSources>
             <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
-            <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED }}" protocolVersion="3"/>
+            <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED_CLOUDTEK }}" protocolVersion="3"/>
+            <add key="nuget.ionizd.io" value="${{ secrets.NUGET_FEED_IONIZD }}" protocolVersion="3"/>
           </packageSources>
           <packageRestore>
             <add key="enabled" value="True" />
@@ -123,6 +129,10 @@ jobs:
               <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
               <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
             </nuget.cloudtek.io>
+            <nuget.ionizd.io>
+              <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
+              <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
+            </nuget.ionizd.io>
           </packageSourceCredentials>
         </configuration>
         "@

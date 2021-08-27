@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <LangVersion>9.0</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Ion.MicroServices" Version="0.*" />
+        <PackageReference Include="Ion.MicroServices.Api" Version="0.*" />
+        <PackageReference Include="Ion.Logging" Version="0.*" />
+        <PackageReference Include="Ion.Logging.Elasticsearch" Version="0.*" />
+        <PackageReference Include="Ion.Metrics" Version="0.*" />
+        <PackageReference Include="Ion.Analyzers" Version="0.*" />
+    </ItemGroup>
+
+</Project>

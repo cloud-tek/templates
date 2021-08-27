@@ -1,8 +1,9 @@
 Import-Module "Pester";
 
 [hashtable]$suffix = @{
-  "job"          = "Job"
-  "microservice" = "Svc"
+  "job"               = "Job"
+  "microservice"      = "Svc"
+  "microservice-api"  = "Api"
 };
 
 function Start-TemplateRenderingTest {

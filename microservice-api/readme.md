@@ -1,4 +1,4 @@
-# ProjectNameLower-ServiceNameLower-svc
+# ProjectNameLower-ServiceNameLower-api
 
 ## Gettings started
 

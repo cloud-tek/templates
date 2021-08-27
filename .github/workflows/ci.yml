@@ -21,9 +21,10 @@ jobs:
         svc:
         - job
         - microservice
+        - microservice-api
         os: 
         - ubuntu-latest
-        - windows-latest
+        # - windows-latest
         - macos-latest
         dotnet-version:
         - '5.0.400'
@@ -96,9 +97,10 @@ jobs:
         svc:
         - job
         - microservice
+        - microservice-api
         os: 
         - ubuntu-latest
-        - windows-latest
+        # - windows-latest
         - macos-latest
         dotnet-version:
         - '5.0.400'

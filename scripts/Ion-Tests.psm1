@@ -16,7 +16,7 @@ function Start-TemplateRenderingTest {
   dotnet new -i "$Root/$Type"
 
   Push-Location $Root;
-  New-Item -Name "tests/$Type" -ItemType "directory";
+  New-Item -Name "tests/$Type" -ItemType "directory" -Force;
   Pop-Location;
 
   Push-Location "$Root/tests/$Type";
@@ -57,10 +57,8 @@ function Start-TemplateBuildTest {
 
 
   Push-Location $Root;
-  New-Item -Name "tests/$Type" -ItemType "directory";
+  New-Item -Name "tests/$Type" -ItemType "directory" -Force;
   Pop-Location;
-
-  New-Item -Name "$Root/tests/$Type" -ItemType "directory";
 
   try {
     Push-Location "$Root/tests/$Type";

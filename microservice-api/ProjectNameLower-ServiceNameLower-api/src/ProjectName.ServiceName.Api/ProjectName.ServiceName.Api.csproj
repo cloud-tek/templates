@@ -7,6 +7,7 @@
 
     <ItemGroup>
         <PackageReference Include="Ion.MicroServices" Version="0.*" />
+        <PackageReference Include="Ion.MicroServices.Api" Version="0.*" />
         <PackageReference Include="Ion.Logging" Version="0.*" />
         <PackageReference Include="Ion.Logging.Elasticsearch" Version="0.*" />
         <PackageReference Include="Ion.Metrics" Version="0.*" />

@@ -1,8 +1,9 @@
 using Ion;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ProjectName.ServiceName.Svc
+namespace ProjectName.ServiceName.Api
 {
     public class Startup : MicroServiceApiStartup
     {
@@ -14,6 +15,10 @@ namespace ProjectName.ServiceName.Svc
             IMicroService microservice)
         {
             return services;
+        }
+
+        public override void OnConfigureEndpoints(IEndpointRouteBuilder endpoints)
+        {
         }
     }
 }

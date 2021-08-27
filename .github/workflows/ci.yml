@@ -13,13 +13,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-ion-services:
-    name: build ion-${{ matrix.svc }} (${{ matrix.dotnet-version }} on ${{ matrix.os }})
+  build-services:
+    name: ${{ matrix.svc }} ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         svc:
         - job
+        - microservice
         os: 
         - ubuntu-latest
         - windows-latest
@@ -86,12 +87,15 @@ jobs:
       working-directory: ${{ matrix.svc }}
 
   render-templates:
-    name: render templates ${{ matrix.dotnet-version }} on ${{ matrix.os }}
+    name: ${{ matrix.svc }} ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs:
-    - build-ion-services
+    - build-services
     strategy:
       matrix: 
+        svc:
+        - job
+        - microservice
         os: 
         - ubuntu-latest
         - windows-latest
@@ -149,22 +153,10 @@ jobs:
       shell: pwsh
       run: |
         Install-Module Pester -Force;
-        Invoke-Pester ${{ github.workspace}}/Tests.ps1 -Passthru;
-    # - id: buld-system
-    #   uses: cloud-tek/actions/build-system@v0.6
-    #   name: build-system
-    #   with:
-    #     directory: ${{ github.workspace }}
-    #     Compile:      'true'
-    #     UnitTests:    'true'
-    # - name: diag
-    #   if: ${{ matrix.os == 'ubuntu-latest' }}
-    #   shell: bash
-    #   run: |
-    #     tree ${{ github.workspace }}
-    # - name: trx parser
-    #   uses: NasAmin/trx-parser@v0.1.1
-    #   id: trx-parser
-    #   with:
-    #     TRX_PATH: ${{ github.workspace }}/tests/results
-    #     REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        $p = Invoke-Pester ${{ github.workspace }}/Tests.ps1 -Tag ${{ matrix.svc }} -Passthru;
+        $p | Export-JUnitReport -Path ${{ github.workspace }}/TestResults.${{ matrix.svc }}.xml
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action/composite@v1
+      if: always()
+      with:
+        files: ${{ github.workspace }}/TestResults.*.xml

@@ -1,59 +1,30 @@
 Import-Module "Pester";
+Import-Module "$PSScriptRoot/scripts/Ion-Tests.psm1" -Force;
 
-Describe -tag "E2ETest" -Name "ion-job" {
-  It "Should render template with solution for each <svc> service " -ForEach @(
+Describe -tag "job" -Name "ion-job tests" {
+  It "Should render template with solution for each service type: <svc>" -ForEach @(
     @{ "SVC" = "job" }
   ) {
-    
-    Remove-Item -Path "tests" -Recurse -Force -ErrorAction Ignore;
-    dotnet new -i "./$SVC"
-
-    New-Item -Name "tests" -ItemType "directory";
-
-    Push-Location "$PSScriptRoot/tests";
-
-    dotnet new ion-$SVC --project "Project" --service "Service"
-
-    Pop-Location;
-
-    Test-Path "tests/Project.sln" | Should -Be $true;
-    Test-Path "tests/.editorconfig" | Should -Be $true;
-    Test-Path "tests/LICENSE" | Should -Be $true;
-    Test-Path "tests/readme.md" | Should -Be $true;
-    Test-Path "tests/project-service-job" | Should -Be $true;
-
-    Test-Path "tests/.idea" | Should -Be $false;
+    Start-TemplateRenderingTest -Type $SVC -Solution $true -Root $PSScriptRoot;
   }
 
-  It "Should build the template with solution for each <svc> service " -ForEach @(
+  It "Should build the template with solution for each service <svc>" -ForEach @(
     @{ "SVC" = "job" }
   ) {
-    
-    Remove-Item -Path "tests" -Recurse -Force -ErrorAction Ignore;
-    & dotnet new -i "./$SVC"
+    Start-TemplateBuildTest -Type $SVC -Root $PSScriptRoot;
+  }
+}
 
-    New-Item -Name "tests" -ItemType "directory";
+Describe -tag "microservice" -Name "ion-microservice tests" {
+  It "Should render template with solution for each service type: <svc>" -ForEach @(
+    @{ "SVC" = "microservice" }
+  ) {
+    Start-TemplateRenderingTest -Type $SVC -Solution $true -Root $PSScriptRoot;
+  }
 
-    try {
-      Push-Location "$PSScriptRoot/tests";
-
-      & dotnet new ion-$SVC --project "Project" --service "Service"
-    } finally {
-      Pop-Location;
-    }
-
-    try {
-      Push-Location "$PSScriptRoot/tests/project-service-$SVC/src/Project.Service.Job";
-
-      & dotnet restore 
-
-      $LASTEXITCODE | Should -Be 0 -Because "dotnet restore should pass for $SVC";
-
-      & dotnet build --no-restore
-
-      $LASTEXITCODE | Should -Be 0 -Because "dotnet build should pass for $SVC";
-    } finally {
-      Pop-Location;
-    }
+  It "Should build the template with solution for each service <svc>" -ForEach @(
+    @{ "SVC" = "microservice" }
+  ) {
+    Start-TemplateBuildTest -Type $SVC -Root $PSScriptRoot;
   }
 }

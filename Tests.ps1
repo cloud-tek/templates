@@ -45,7 +45,11 @@ Describe -tag "E2ETest" -Name "ion-job" {
     }
 
     try {
-      Push-Location "$PSScriptRoot/tests/project-service-$SVC/src/Project.Service.Job";
+      [hashtable]$suffix = @{
+        "job" = "Job"
+        "microservice" = "Svc"
+      };
+      Push-Location "$PSScriptRoot/tests/project-service-$SVC/src/Project.Service.$($suffix[$SVC])";
 
       & dotnet restore 
 

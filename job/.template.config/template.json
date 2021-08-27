@@ -87,7 +87,8 @@
             "**/*.filelist",
             "**/*.user",
             "**/*.lock.json",
-            "**/.idea/**"
+            "**/.idea/**",
+            "Tests.ps1"
           ]
         }
       ]

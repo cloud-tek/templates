@@ -90,7 +90,7 @@ jobs:
     name: ${{ matrix.svc }} ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs:
-    - build-ion-services
+    - build-services
     strategy:
       matrix: 
         svc:

@@ -153,4 +153,10 @@ jobs:
       shell: pwsh
       run: |
         Install-Module Pester -Force;
-        Invoke-Pester ${{ github.workspace }}/Tests.ps1 -Tag ${{ matrix.svc }} -Passthru;
+        $p = Invoke-Pester ${{ github.workspace }}/Tests.ps1 -Tag ${{ matrix.svc }} -Passthru;
+        $p | Export-JUnitReport -Path ${{ github.workspace }}/TestResults.${{ matrix.svc }}.xml
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action/composite@v1
+      if: always()
+      with:
+        files: ${{ github.workspace }}/TestResults.*.xml

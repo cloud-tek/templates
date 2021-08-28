@@ -159,6 +159,9 @@ jobs:
         Install-Module Pester -Force;
         $p = Invoke-Pester ${{ github.workspace }}/Tests.ps1 -Tag ${{ matrix.svc }} -Passthru;
         $p | Export-JUnitReport -Path ${{ github.workspace }}/TestResults.${{ matrix.svc }}.xml
+        if ($p.FailedCount -gt 0) {
+          exit 1;
+        }
     - name: Publish Unit Test Results
       uses: EnricoMi/publish-unit-test-result-action/composite@v1
       if: always()

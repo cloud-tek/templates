@@ -22,6 +22,7 @@ jobs:
         - job
         - microservice
         - microservice-api
+        - microservice-mvcapi
         os: 
         - ubuntu-latest
         # - windows-latest
@@ -98,6 +99,7 @@ jobs:
         - job
         - microservice
         - microservice-api
+        - microservice-mvcapi
         os: 
         - ubuntu-latest
         # - windows-latest

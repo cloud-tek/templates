@@ -29,7 +29,7 @@ Describe -tag "microservice" -Name "ion-microservice tests" {
   }
 }
 
-Describe -tag "microservice" -Name "ion-microservice-api tests" {
+Describe -tag "microservice-api" -Name "ion-microservice-api tests" {
   It "Should render template with solution for each service type: <svc>" -ForEach @(
     @{ "SVC" = "microservice-api" }
   ) {
@@ -38,6 +38,20 @@ Describe -tag "microservice" -Name "ion-microservice-api tests" {
 
   It "Should build the template with solution for each service <svc>" -ForEach @(
     @{ "SVC" = "microservice-api" }
+  ) {
+    Start-TemplateBuildTest -Type $SVC -Root $PSScriptRoot;
+  }
+}
+
+Describe -tag "microservice-mvcapi" -Name "ion-microservice-api tests" {
+  It "Should render template with solution for each service type: <svc>" -ForEach @(
+    @{ "SVC" = "microservice-mvcapi" }
+  ) {
+    Start-TemplateRenderingTest -Type $SVC -Solution $true -Root $PSScriptRoot;
+  }
+
+  It "Should build the template with solution for each service <svc>" -ForEach @(
+    @{ "SVC" = "microservice-mvcapi" }
   ) {
     Start-TemplateBuildTest -Type $SVC -Root $PSScriptRoot;
   }

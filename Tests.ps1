@@ -43,7 +43,7 @@ Describe -tag "microservice-api" -Name "ion-microservice-api tests" {
   }
 }
 
-Describe -tag "microservice-mvcapi" -Name "ion-microservice-api tests" {
+Describe -tag "microservice-mvcapi" -Name "ion-microservice-mvcapi tests" {
   It "Should render template with solution for each service type: <svc>" -ForEach @(
     @{ "SVC" = "microservice-mvcapi" }
   ) {

@@ -22,7 +22,7 @@ jobs:
         - job
         - microservice
         - microservice-api
-        - microservice-mvcapi
+        - microservice-mvc-api
         os: 
         - ubuntu-latest
         # - windows-latest

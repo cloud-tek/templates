@@ -8,6 +8,12 @@ Describe -tag "job" -Name "ion-job tests" {
     Start-TemplateRenderingTest -Type $SVC -Solution $true -Root $PSScriptRoot;
   }
 
+  It "Should render template without solution for each service type: <svc>" -ForEach @(
+    @{ "SVC" = "job" }
+  ) {
+    Start-TemplateRenderingTest -Type $SVC -Solution $false -Root $PSScriptRoot;
+  }
+
   It "Should build the template with solution for each service <svc>" -ForEach @(
     @{ "SVC" = "job" }
   ) {
@@ -20,6 +26,12 @@ Describe -tag "microservice" -Name "ion-microservice tests" {
     @{ "SVC" = "microservice" }
   ) {
     Start-TemplateRenderingTest -Type $SVC -Solution $true -Root $PSScriptRoot;
+  }
+
+  It "Should render template without solution for each service type: <svc>" -ForEach @(
+    @{ "SVC" = "microservice" }
+  ) {
+    Start-TemplateRenderingTest -Type $SVC -Solution $false -Root $PSScriptRoot;
   }
 
   It "Should build the template with solution for each service <svc>" -ForEach @(
@@ -36,6 +48,12 @@ Describe -tag "microservice-api" -Name "ion-microservice-api tests" {
     Start-TemplateRenderingTest -Type $SVC -Solution $true -Root $PSScriptRoot;
   }
 
+  It "Should render template without solution for each service type: <svc>" -ForEach @(
+    @{ "SVC" = "microservice-api" }
+  ) {
+    Start-TemplateRenderingTest -Type $SVC -Solution $false -Root $PSScriptRoot;
+  }
+
   It "Should build the template with solution for each service <svc>" -ForEach @(
     @{ "SVC" = "microservice-api" }
   ) {
@@ -43,15 +61,21 @@ Describe -tag "microservice-api" -Name "ion-microservice-api tests" {
   }
 }
 
-Describe -tag "microservice-mvcapi" -Name "ion-microservice-mvcapi tests" {
+Describe -tag "microservice-mvc-api" -Name "ion-microservice-mvc-api tests" {
   It "Should render template with solution for each service type: <svc>" -ForEach @(
-    @{ "SVC" = "microservice-mvcapi" }
+    @{ "SVC" = "microservice-mvc-api" }
   ) {
     Start-TemplateRenderingTest -Type $SVC -Solution $true -Root $PSScriptRoot;
   }
 
+  It "Should render template without solution for each service type: <svc>" -ForEach @(
+    @{ "SVC" = "microservice-mvc-api" }
+  ) {
+    Start-TemplateRenderingTest -Type $SVC -Solution $false -Root $PSScriptRoot;
+  }
+
   It "Should build the template with solution for each service <svc>" -ForEach @(
-    @{ "SVC" = "microservice-mvcapi" }
+    @{ "SVC" = "microservice-mvc-api" }
   ) {
     Start-TemplateBuildTest -Type $SVC -Root $PSScriptRoot;
   }

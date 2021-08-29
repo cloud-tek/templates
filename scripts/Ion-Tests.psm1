@@ -1,9 +1,17 @@
 Import-Module "Pester";
 
 [hashtable]$suffix = @{
-  "job"               = "Job"
-  "microservice"      = "Svc"
-  "microservice-api"  = "Api"
+  "job"                   = "job"
+  "microservice"          = "svc"
+  "microservice-api"      = "api"
+  "microservice-mvc-api"   = "mvc-api"
+};
+
+[hashtable]$csprojSuffix = @{
+  "job"                   = "Job"
+  "microservice"          = "Svc"
+  "microservice-api"      = "Api"
+  "microservice-mvc-api"   = "MvcApi"
 };
 
 function Start-TemplateRenderingTest {
@@ -29,7 +37,7 @@ function Start-TemplateRenderingTest {
     Test-Path "$Root/tests/$Type/.editorconfig" | Should -Be $true -Because ".editoconfig file should exist";
     Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $true -Because "license file should exist";
     Test-Path "$Root/tests/$Type/readme.md" | Should -Be $true -Because "readme.md should exist";
-    Test-Path "$Root/tests/$Type/project-service-$($suffix[$Type].ToString().ToLowerInvariant())" | Should -Be $true -Because "service folder should exist";
+    Test-Path "$Root/tests/$Type/project-service-$($suffix[$Type])" | Should -Be $true -Because "service folder should exist";
   }
   else {
     dotnet new ion-$Type --project "Project" --service "Service" --solution false
@@ -38,7 +46,7 @@ function Start-TemplateRenderingTest {
     Test-Path "$Root/tests/$Type/.editorconfig" | Should -Be $false -Because ".editoconfig file should not exist";
     Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $false -Because "license file should not exist";
     Test-Path "$Root/tests/$Type/readme.md" | Should -Be $false -Because "readme.md should not exist";
-    Test-Path "$Root/tests/$Type/project-service-$($suffix[$Type].ToString().ToLowerInvariant())" | Should -Be $true -Because "service folder should not exist";
+    Test-Path "$Root/tests/$Type/project-service-$($suffix[$Type])" | Should -Be $true -Because "service folder should not exist";
   }
 
   Pop-Location;
@@ -71,7 +79,7 @@ function Start-TemplateBuildTest {
   }
 
   try {
-    Push-Location "$Root/tests/$Type/project-service-$($suffix[$Type].ToString().ToLowerInvariant())/src/Project.Service.$($suffix[$Type])";
+    Push-Location "$Root/tests/$Type/project-service-$($suffix[$Type])/src/Project.Service.$($csprojSuffix[$Type])";
 
     & dotnet restore 
 

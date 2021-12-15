@@ -1,6 +1,5 @@
+using Ion.MicroServices;
 using Ion.MicroServices.Api;
-
-namespace ProjectName.ServiceName.Api;
 
 var summaries = new[]
 {

@@ -4,7 +4,7 @@
   "classifications": ["Ion", "MicroService.GraphQL"],
   "identity": "Ion.MicroService.GraphQL",
   "name": "Ion MicroService GraphQL API",
-  "shortName": "ion-microservice-grahql-api",
+  "shortName": "ion-microservice-graphql-api",
   "tags": {
     "language": "C#",
     "type": "project"

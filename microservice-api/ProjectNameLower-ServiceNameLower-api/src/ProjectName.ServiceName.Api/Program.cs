@@ -2,9 +2,7 @@ using Ion;
 using Ion.MicroServices;
 using Ion.MicroServices.Api;
 
-namespace ProjectName.ServiceName.Api;
-
-var service = new MicroService("ion-microservices-api-demo")
+var service = new MicroService("ProjectNameLower-ServiceNameLower-api")
     .ConfigureServices(services => { })
     .ConfigureApiControllerPipeline();
 

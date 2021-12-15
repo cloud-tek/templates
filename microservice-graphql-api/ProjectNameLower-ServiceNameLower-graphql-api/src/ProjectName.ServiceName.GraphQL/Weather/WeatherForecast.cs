@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProjectName.ServiceName.GraphQL.WeatherForecasting;
+namespace ProjectName.ServiceName.GraphQL.Weather;
 
 public record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
 {

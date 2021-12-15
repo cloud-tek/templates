@@ -1,5 +1,5 @@
 ﻿using HotChocolate.Types;
-using ProjectName.ServiceName.GraphQL.WeatherForecasting;
+using ProjectName.ServiceName.GraphQL.Weather;
 
 namespace ProjectName.ServiceName.GraphQL.Graph;
 

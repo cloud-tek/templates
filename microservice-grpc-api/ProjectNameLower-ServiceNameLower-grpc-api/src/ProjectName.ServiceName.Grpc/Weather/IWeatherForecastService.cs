@@ -1,4 +1,4 @@
-﻿namespace ProjectName.ServiceName.GraphQL.WeatherForecasting;
+﻿namespace ProjectName.ServiceName.Grpc.Weather;
 
 public interface IWeatherForecastService
 {

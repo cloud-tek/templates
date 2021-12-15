@@ -1,24 +1,14 @@
-﻿using System.Threading.Tasks;
-using Ion;
-using Ion.Logging;
-using Ion.Logging.Elasticsearch;
-using Ion.Metrics;
+﻿using Ion.MicroServices;
+using Ion.MicroServices.Job;
 
-namespace ProjectName.ServiceName.Job
-{
-    public class Program
+namespace ProjectName.ServiceName.Job;
+
+var service = new MicroService("ion-microservices-job-demo")
+    .ConfigureServices(services =>
     {
-        public const string Name = "ProjectNameLower-ServiceNameLower-job";
+        // services
+        //     .AddSingleton<IHostedJobService, JobService1>();
+    })
+    .ConfigureJob();
 
-        public static async Task Main(string[] args)
-        {
-            var service = new Job<Startup>(Name)
-                .WithMetrics()
-                .WithLogging(log =>
-                    log
-                        .ToConsole()
-                        .ToElasticsearch());
-            await service.RunAsync(null, args);
-        }
-    }
-}
+await service.RunAsync();

@@ -1,24 +1,11 @@
-using System.Threading.Tasks;
 using Ion;
-using Ion.Logging;
-using Ion.Logging.Elasticsearch;
-using Ion.Metrics;
+using Ion.MicroServices;
+using Ion.MicroServices.Api;
 
-namespace ProjectName.ServiceName.Api
-{
-    public class Program
-    {
-        public const string Name = "ProjectNameLower-ServiceNameLower-api";
+namespace ProjectName.ServiceName.Api;
 
-        public static async Task Main(string[] args)
-        {
-            var service = new MicroService<Startup>(Name)
-                .WithMetrics()
-                .WithLogging(log =>
-                    log
-                        .ToConsole()
-                        .ToElasticsearch());
-            await service.RunAsync(null, args);
-        }
-    }
-}
+var service = new MicroService("ion-microservices-api-demo")
+    .ConfigureServices(services => { })
+    .ConfigureApiControllerPipeline();
+
+await service.RunAsync();

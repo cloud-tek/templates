@@ -9,7 +9,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Ion.MicroServices" Version="0.*" />        
+        <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Ion.MicroServices.Grpc" Version="0.*" />
         <PackageReference Include="Ion.Analyzers" Version="0.*" />
     </ItemGroup>
+
 </Project>

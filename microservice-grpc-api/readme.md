@@ -1,4 +1,4 @@
-# tango-zulu-mvc
+# ProjectNameLower-ServiceNameLower-mvc
 
 ## Gettings started
 

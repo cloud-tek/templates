@@ -1,6 +1,6 @@
 ﻿{  
-  "profiles": {
-    "ProjectName.ServiceName.Api": {
+  "profiles": {   
+    "ProjectName.ServiceName.Job": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

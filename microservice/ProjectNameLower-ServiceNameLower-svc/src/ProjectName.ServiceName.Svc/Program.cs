@@ -1,24 +1,9 @@
-using System.Threading.Tasks;
-using Ion;
-using Ion.Logging;
-using Ion.Logging.Elasticsearch;
-using Ion.Metrics;
+using Ion.MicroServices;
 
-namespace ProjectName.ServiceName.Svc
-{
-    public class Program
+var service = new MicroService("ProjectNameLower-ServiceNameLower-svc")
+    .ConfigureServices(services =>
     {
-        public const string Name = "ProjectNameLower-ServiceNameLower-svc";
+    })
+    .ConfigureDefaultServicePipeline();
 
-        public static async Task Main(string[] args)
-        {
-            var service = new MicroService<Startup>(Name)
-                .WithMetrics()
-                .WithLogging(log =>
-                    log
-                        .ToConsole()
-                        .ToElasticsearch());
-            await service.RunAsync(null, args);
-        }
-    }
-}
+await service.RunAsync();

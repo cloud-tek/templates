@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "CloudTek",
+  "classifications": ["Ion", "MicroService.Grpc"],
+  "identity": "Ion.MicroService.Grpc.Minimal",
+  "name": "Ion MicroService Grpc API (Code First)",
+  "shortName": "ion-microservice-grpc-minimal-api",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "project": {
+      "description": "Project name",
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "ProjectName",
+      "fileRename": "ProjectName",
+      "defaultValue": "Ionizd"
+    },
+    "projectLowercase": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "project",
+        "toLower": true
+      },
+      "replaces": "ProjectNameLower",
+      "fileRename": "ProjectNameLower"
+    },
+    "service": {
+      "description": "Service name",
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "ServiceName",
+      "fileRename": "ServiceName",
+      "defaultValue": "Service"
+    },
+    "serviceLowercase": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "service",
+        "toLower": true
+      },
+      "replaces": "ServiceNameLower",
+      "fileRename": "ServiceNameLower"
+    },
+    "solution": {
+      "type": "parameter",
+      "datatype":"bool",
+      "defaultValue": "true"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!solution)",
+          "exclude": [
+            "readme.md"
+          ]
+        },
+        {
+          "condition": "(!solution)",
+          "exclude": [
+            "LICENSE"
+          ]
+        },
+        {
+          "condition": "(!solution)",
+          "exclude": [
+            ".editorconfig"
+          ]
+        },
+        {
+          "condition": "(!solution)",
+          "exclude": [
+            "*.sln"
+          ]
+        },
+        {
+          "exclude": [
+            "**/[Bb]in/**",
+            "**/[Oo]bj/**",
+            ".template.config/**/*",
+            "**/*.filelist",
+            "**/*.user",
+            "**/*.lock.json",
+            "**/.idea/**",
+            "Tests.ps1"
+          ]
+        }
+      ]
+    }
+  ]
+}

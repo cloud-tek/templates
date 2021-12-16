@@ -1,6 +1,6 @@
 ﻿{  
-  "profiles": {
-    "ProjectName.ServiceName.Api": {
+  "profiles": {   
+    "ProjectName.ServiceName.GraphQL": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

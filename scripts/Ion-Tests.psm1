@@ -1,17 +1,23 @@
 Import-Module "Pester";
 
 [hashtable]$suffix = @{
-  "job"                   = "job"
-  "microservice"          = "svc"
-  "microservice-api"      = "api"
-  "microservice-mvc-api"   = "mvc-api"
+  "job"                         = "job"
+  "microservice"                = "svc"
+  "microservice-api"            = "api"
+  "microservice-minimal-api"    = "api"
+  "microservice-graphql-api"    = "graphql-api"
+  "microservice-grpc-api"         = "grpc-api"
+  "microservice-grpc-minimal-api" = "grpc-api"
 };
 
 [hashtable]$csprojSuffix = @{
   "job"                   = "Job"
   "microservice"          = "Svc"
   "microservice-api"      = "Api"
-  "microservice-mvc-api"   = "MvcApi"
+  "microservice-minimal-api"    = "Api"
+  "microservice-graphql-api"    = "GraphQL"
+  "microservice-grpc-api"         = "Grpc"
+  "microservice-grpc-minimal-api" = "Grpc"
 };
 
 function Start-TemplateRenderingTest {

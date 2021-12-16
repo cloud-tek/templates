@@ -22,13 +22,16 @@ jobs:
         - job
         - microservice
         - microservice-api
-        - microservice-mvc-api
+        - microservice-minimal-api
+        - microservice-graphql-api
+        - microservice-grpc-api
+        - microservice-grpc-minimal-api
         os: 
         - ubuntu-latest
         # - windows-latest
         - macos-latest
         dotnet-version:
-        - '5.0.400'
+        - '6.0.100'
     steps:
     - uses: actions/checkout@v2
       with:

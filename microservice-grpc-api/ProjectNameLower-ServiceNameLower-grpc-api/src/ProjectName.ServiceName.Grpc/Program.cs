@@ -10,7 +10,7 @@ var service = new MicroService("ProjectNameLower-ServiceNameLower-grpc-api", new
     {
         services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
     })
-    .ConfigureGrpcCodeFirstPipeline(endpoints => {
+    .ConfigureGrpcPipeline(endpoints => {
         endpoints.MapGrpcService<WeatherForecastingService>();
     });
 

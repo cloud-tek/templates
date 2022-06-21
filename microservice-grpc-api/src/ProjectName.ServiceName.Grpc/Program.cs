@@ -6,7 +6,7 @@ using ProjectName.ServiceName.Grpc.Services;
 using ProjectName.ServiceName.Grpc.Weather;
 
 var service = new MicroService("ProjectNameLower-ServiceNameLower-grpc-api", new NullLogger<IMicroService>())
-    .ConfigureServices(services =>
+    .ConfigureServices((services, configuration) =>
     {
         services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
     })

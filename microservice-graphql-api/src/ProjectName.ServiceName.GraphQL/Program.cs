@@ -6,7 +6,7 @@ using ProjectName.ServiceName.GraphQL.Graph;
 using ProjectName.ServiceName.GraphQL.Weather;
 
 var service = new MicroService("ProjectNameLower-ServiceNameLower-graphql-api", new NullLogger<IMicroService>())
-    .ConfigureServices(services => 
+    .ConfigureServices((services, configuration) =>
     {
         services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
     })

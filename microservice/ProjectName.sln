@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectNameLower-ServiceNam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{531C579D-15D0-4A8D-9C11-13D996E5A0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.ServiceName.Svc", "ProjectNameLower-ServiceNameLower-svc\src\ProjectName.ServiceName.Svc\ProjectName.ServiceName.Svc.csproj", "{15F2649E-77D3-4F25-8A37-855E506A4B49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.ServiceName.Svc", "src\ProjectName.ServiceName.Svc\ProjectName.ServiceName.Svc.csproj", "{15F2649E-77D3-4F25-8A37-855E506A4B49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

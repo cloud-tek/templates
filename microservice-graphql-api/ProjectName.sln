@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectNameLower-ServiceNam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{531C579D-15D0-4A8D-9C11-13D996E5A0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.ServiceName.GraphQL", "ProjectNameLower-ServiceNameLower-graphql-api\src\ProjectName.ServiceName.GraphQL\ProjectName.ServiceName.GraphQL.csproj", "{342625F4-3A1D-44CE-BFF3-1BC4DFC45EB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.ServiceName.GraphQL", "src\ProjectName.ServiceName.GraphQL\ProjectName.ServiceName.GraphQL.csproj", "{342625F4-3A1D-44CE-BFF3-1BC4DFC45EB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

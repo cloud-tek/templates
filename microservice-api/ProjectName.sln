@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectNameLower-ServiceNam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{531C579D-15D0-4A8D-9C11-13D996E5A0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.ServiceName.Api", "ProjectNameLower-ServiceNameLower-api\src\ProjectName.ServiceName.Api\ProjectName.ServiceName.Api.csproj", "{BAE5E9C5-FA40-46BF-A32E-A9D9EF1FDD78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.ServiceName.Api", "src\ProjectName.ServiceName.Api\ProjectName.ServiceName.Api.csproj", "{BAE5E9C5-FA40-46BF-A32E-A9D9EF1FDD78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

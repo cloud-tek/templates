@@ -26,7 +26,7 @@ jobs:
         - microservice-graphql-api
         - microservice-grpc-api
         - microservice-grpc-minimal-api
-        os: 
+        os:
         - ubuntu-latest
         # - windows-latest
         - macos-latest
@@ -82,12 +82,12 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: dotnet restore
       run: |
-        dotnet restore ProjectName.sln
+        dotnet restore ProjectName.ServiceName.sln
       shell: bash
       working-directory: ${{ matrix.svc }}
     - name: dotnet build
       run: |
-        dotnet build ProjectName.sln
+        dotnet build ProjectName.ServiceName.sln
       shell: bash
       working-directory: ${{ matrix.svc }}
 
@@ -97,7 +97,7 @@ jobs:
     needs:
     - build-services
     strategy:
-      matrix: 
+      matrix:
         svc:
         - job
         - microservice
@@ -106,7 +106,7 @@ jobs:
         - microservice-graphql-api
         - microservice-grpc-api
         - microservice-grpc-minimal-api
-        os: 
+        os:
         - ubuntu-latest
         # - windows-latest
         - macos-latest

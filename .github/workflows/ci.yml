@@ -95,7 +95,7 @@ jobs:
     name: ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs:
-    - build-services
+    - pre-build-services
     strategy:
       matrix:
         os:

@@ -15,5 +15,5 @@ namespace ProjectName.ServiceName.Grpc.Services;
         public int TemperatureF { get; set; }
 
         [DataMember(Order =4)]
-        public string Summary { get; set; }
+        public string Summary { get; set; } = default!;
     }

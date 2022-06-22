@@ -11,13 +11,13 @@ public class WeatherForecastingService : IWeatherForecastingService
         this.service = service ?? throw new ArgumentNullException(nameof(service));
     }
     public Task<WeatherForecastResponse[]> GetWeatherForecast(CallContext context = default)
-    {        
+    {
         return Task.FromResult(service.GetWeatherForecast().Select(x => new WeatherForecastResponse()
         {
             Date = x.Date,
             TemperatureC = x.TemperatureC,
             TemperatureF = x.TemperatureF,
-            Summary = x.Summary
+            Summary = x.Summary ?? default!
         }).ToArray());
     }
 }

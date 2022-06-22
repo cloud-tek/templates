@@ -170,7 +170,7 @@ jobs:
       with:
         files: ${{ github.workspace }}/TestResults.*.xml
 
-post-build-templates:
+  post-build-templates:
     name: ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs:

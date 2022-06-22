@@ -163,7 +163,11 @@ jobs:
       shell: pwsh
       run: |
         Install-Module Pester -Force;
-        $p = Invoke-Pester ${{ github.workspace }}/Tests.ps1 -Tag ${{ matrix.svc }} -Passthru;
+        $p = Invoke-Pester ${{ github.workspace }}/Tests.ps1 `
+          -Tag ${{ matrix.svc }} `
+          -OutputFile ${{ github.workspace }}/TestResults.${{ matrix.svc }}.xml `
+          -OutputFormat JUnitXml `
+          -Passthru;
         $p | Export-JUnitReport -Path ${{ github.workspace }}/TestResults.${{ matrix.svc }}.xml
         if ($p.FailedCount -gt 0) {
           exit 1;

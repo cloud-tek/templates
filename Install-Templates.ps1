@@ -12,5 +12,6 @@ $ErrorActionPreference = "Stop"
 );
 
 $templates | % {
+  & dotnet new -u "$PSScriptRoot/$_"
   & dotnet new -i "$PSScriptRoot/$_"
 }

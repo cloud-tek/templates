@@ -1,3 +1,5 @@
+#!/usr/local/bin/pwsh
+
 Import-Module "Pester";
 Import-Module "$PSScriptRoot/scripts/Ion-Tests.psm1" -Force;
 

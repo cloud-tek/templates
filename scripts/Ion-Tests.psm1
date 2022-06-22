@@ -39,20 +39,20 @@ function Start-TemplateRenderingTest {
   if ($true -eq $solution) {
     dotnet new ion-$Type --project "Project" --service "Service"
 
-    Test-Path "$Root/tests/$Type/Project.sln" | Should -Be $true -Because ".sln file should exist";
+    Test-Path "$Root/tests/$Type/Project.Service.sln" | Should -Be $true -Because ".sln file should exist";
     Test-Path "$Root/tests/$Type/.editorconfig" | Should -Be $true -Because ".editoconfig file should exist";
     Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $true -Because "license file should exist";
     Test-Path "$Root/tests/$Type/readme.md" | Should -Be $true -Because "readme.md should exist";
-    Test-Path "$Root/tests/$Type/project-service-$($suffix[$Type])" | Should -Be $true -Because "service folder should exist";
+    Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
   }
   else {
     dotnet new ion-$Type --project "Project" --service "Service" --solution false
 
-    Test-Path "$Root/tests/$Type/Project.sln" | Should -Be $false -Because ".sln file should not exist";
+    Test-Path "$Root/tests/$Type/Project.Service.sln" | Should -Be $false -Because ".sln file should not exist";
     Test-Path "$Root/tests/$Type/.editorconfig" | Should -Be $false -Because ".editoconfig file should not exist";
     Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $false -Because "license file should not exist";
     Test-Path "$Root/tests/$Type/readme.md" | Should -Be $false -Because "readme.md should not exist";
-    Test-Path "$Root/tests/$Type/project-service-$($suffix[$Type])" | Should -Be $true -Because "service folder should not exist";
+    Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
   }
 
   Pop-Location;
@@ -85,9 +85,9 @@ function Start-TemplateBuildTest {
   }
 
   try {
-    Push-Location "$Root/tests/$Type/project-service-$($suffix[$Type])/src/Project.Service.$($csprojSuffix[$Type])";
+    Push-Location "$Root/tests/$Type/src/Project.Service.$($csprojSuffix[$Type])";
 
-    & dotnet restore 
+    & dotnet restore
 
     $LASTEXITCODE | Should -Be 0 -Because "dotnet restore should pass for $Type";
 

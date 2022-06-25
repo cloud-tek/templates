@@ -55,6 +55,8 @@ function Start-TemplateRenderingTest {
     Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $false -Because "license file should not exist";
     Test-Path "$Root/tests/$Type/readme.md" | Should -Be $false -Because "readme.md should not exist";
     Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
+    Test-Path "$Root/tests/$Type/.nuke" | Should -Be $false -Because ".nuke folder should not exist";
+    Test-Path "$Root/tests/$Type/build" | Should -Be $false -Because "build folder should not exist";
   }
 
   Pop-Location;

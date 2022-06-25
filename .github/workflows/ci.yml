@@ -38,6 +38,7 @@ jobs:
         fetch-depth: '0'
     - name: nuget.config (pwsh)
       shell: pwsh
+      working-directory: ${{ matrix.svc }}
       run: |
         $nuget = @"
         <?xml version="1.0" encoding="utf-8"?>

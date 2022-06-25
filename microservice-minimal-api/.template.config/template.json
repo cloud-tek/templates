@@ -80,6 +80,13 @@
           ]
         },
         {
+          "condition": "(!solution)",
+          "exclude": [
+            ".nuke",
+            "build"
+          ]
+        },
+        {
           "exclude": [
             "**/[Bb]in/**",
             "**/[Oo]bj/**",

@@ -44,6 +44,8 @@ function Start-TemplateRenderingTest {
     Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $true -Because "license file should exist";
     Test-Path "$Root/tests/$Type/readme.md" | Should -Be $true -Because "readme.md should exist";
     Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
+    Test-Path "$Root/tests/$Type/.nuke" | Should -Be $true -Because ".nuke folder should exist";
+    Test-Path "$Root/tests/$Type/build" | Should -Be $true -Because "build folder should exist";
   }
   else {
     dotnet new ion-$Type --project "Project" --service "Service" --solution false

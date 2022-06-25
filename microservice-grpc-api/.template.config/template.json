@@ -82,6 +82,7 @@
         {
           "condition": "(!solution)",
           "exclude": [
+            ".config",
             ".nuke",
             "build"
           ]

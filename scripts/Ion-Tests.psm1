@@ -44,6 +44,12 @@ function Start-TemplateRenderingTest {
     Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $true -Because "license file should exist";
     Test-Path "$Root/tests/$Type/readme.md" | Should -Be $true -Because "readme.md should exist";
     Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
+    Test-Path "$Root/tests/$Type/.config" | Should -Be $true -Because ".config folder should not exist";
+    Test-Path "$Root/tests/$Type/.nuke" | Should -Be $true -Because ".nuke folder should exist";
+    Test-Path "$Root/tests/$Type/build" | Should -Be $true -Because "build folder should exist";
+    Test-Path "$Root/tests/$Type/build.cmd" | Should -Be $true -Because "build.cmd should exist";
+    Test-Path "$Root/tests/$Type/build.ps1" | Should -Be $true -Because "build.ps1 should exist";
+    Test-Path "$Root/tests/$Type/build.sh" | Should -Be $true -Because "build.sh should exist";
   }
   else {
     dotnet new ion-$Type --project "Project" --service "Service" --solution false
@@ -53,6 +59,12 @@ function Start-TemplateRenderingTest {
     Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $false -Because "license file should not exist";
     Test-Path "$Root/tests/$Type/readme.md" | Should -Be $false -Because "readme.md should not exist";
     Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
+    Test-Path "$Root/tests/$Type/.config" | Should -Be $false -Because ".config folder should not exist";
+    Test-Path "$Root/tests/$Type/.nuke" | Should -Be $false -Because ".nuke folder should not exist";
+    Test-Path "$Root/tests/$Type/build" | Should -Be $false -Because "build folder should not exist";
+    Test-Path "$Root/tests/$Type/build.cmd" | Should -Be $false -Because "build.cmd should not exist";
+    Test-Path "$Root/tests/$Type/build.ps1" | Should -Be $false -Because "build.ps1 should not exist";
+    Test-Path "$Root/tests/$Type/build.sh" | Should -Be $false -Because "build.sh should not exist";
   }
 
   Pop-Location;

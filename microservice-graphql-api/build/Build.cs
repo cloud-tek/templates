@@ -21,7 +21,7 @@ namespace _build
         static new readonly Repository Repository = new()
         {
             Artifacts = new[] {
-                 new Artifact() { Type = ArtifactType.Package, Project = "ProjectName.ServiceName.ProjectName.ServiceName.GraphQL" }
+                 new Artifact() { Type = ArtifactType.Package, Project = "ProjectName.ServiceName.GraphQL" }
             }
         };
     }

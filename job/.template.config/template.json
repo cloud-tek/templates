@@ -88,6 +88,14 @@
           ]
         },
         {
+          "condition": "(!solution)",
+          "exclude": [
+            "build.cmd",
+            "build.ps1",
+            "build.sh"
+          ]
+        },
+        {
           "exclude": [
             "**/[Bb]in/**",
             "**/[Oo]bj/**",

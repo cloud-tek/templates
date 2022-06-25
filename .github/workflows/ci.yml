@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  pre-build-templates:
+  pre-build-templates-nuke:
     name: ${{ matrix.svc }} ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -85,7 +85,7 @@ jobs:
         dotnet nuke Compile
       shell: bash
       working-directory: ${{ matrix.svc }}
-  pre-build-templates-nuke:
+  pre-build-templates:
     name: ${{ matrix.svc }} ${{ matrix.dotnet-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:

@@ -1,10 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "CloudTek",
-  "classifications": ["Ion", "MicroService"],
-  "identity": "Ion.MicroService",
-  "name": "Ion MicroService",
-  "shortName": "ion-microservice",
+  "classifications": ["Hive", "MicroService"],
+  "identity": "Hive.MicroService",
+  "name": "Hive MicroService",
+  "shortName": "hive-microservice",
   "tags": {
     "language": "C#",
     "type": "project"

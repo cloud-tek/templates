@@ -9,7 +9,7 @@ TODO: nuke
 
 > TODO:
 >
-> required Ion settings
+> required Hive settings
 
 ## Useful links
 

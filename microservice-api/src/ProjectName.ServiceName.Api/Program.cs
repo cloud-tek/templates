@@ -1,6 +1,6 @@
-using Ion;
-using Ion.MicroServices;
-using Ion.MicroServices.Api;
+using Hive;
+using Hive.MicroServices;
+using Hive.MicroServices.Api;
 
 var service = new MicroService("ProjectNameLower-ServiceNameLower-api")
     .ConfigureServices((services, configuration) =>

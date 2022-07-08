@@ -1,4 +1,4 @@
-using Ion.MicroServices;
+using Hive.MicroServices;
 
 var service = new MicroService("ProjectNameLower-ServiceNameLower-svc")
     .ConfigureServices((services, configuration) =>

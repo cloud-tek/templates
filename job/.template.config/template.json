@@ -1,10 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "CloudTek",
-  "classifications": ["Ion", "Job"],
-  "identity": "Ion.Job",
-  "name": "Ion Job",
-  "shortName": "ion-job",
+  "classifications": ["Hive", "Job"],
+  "identity": "Hive.Job",
+  "name": "Hive Job",
+  "shortName": "hive-job",
   "tags": {
     "language": "C#",
     "type": "project"

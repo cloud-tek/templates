@@ -1,6 +1,6 @@
-using Ion;
-using Ion.MicroServices;
-using Ion.MicroServices.GraphQL;
+using Hive;
+using Hive.MicroServices;
+using Hive.MicroServices.GraphQL;
 using Microsoft.Extensions.Logging.Abstractions;
 using ProjectName.ServiceName.GraphQL.Graph;
 using ProjectName.ServiceName.GraphQL.Weather;

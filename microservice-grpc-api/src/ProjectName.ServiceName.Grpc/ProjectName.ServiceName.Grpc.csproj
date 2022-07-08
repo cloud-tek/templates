@@ -23,8 +23,8 @@
 
 
     <ItemGroup>
-        <PackageReference Include="Ion.MicroServices.Grpc" Version="0.*" />
-        <PackageReference Include="Ion.Analyzers" Version="0.*" />
+        <PackageReference Include="Hive.MicroServices.Grpc" Version="0.*" />
+        <PackageReference Include="Hive.Analyzers" Version="0.*" />
     </ItemGroup>
 
 </Project>

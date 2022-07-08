@@ -1,7 +1,7 @@
-﻿using Ion.MicroServices;
-using Ion.MicroServices.Job;
+﻿using Hive.MicroServices;
+using Hive.MicroServices.Job;
 
-var service = new MicroService("ion-microservices-job-demo")
+var service = new MicroService("hive-microservices-job-demo")
     .ConfigureServices((services, configuration) =>
     {
         // services

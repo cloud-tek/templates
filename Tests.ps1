@@ -1,7 +1,7 @@
 #!/usr/local/bin/pwsh
 
 Import-Module "Pester";
-Import-Module "$PSScriptRoot/scripts/Ion-Tests.psm1" -Force;
+Import-Module "$PSScriptRoot/scripts/TestSuite.psm1" -Force;
 
 Describe -tag "template-rendering" -Name "template-rendering tests" {
   It "Should render template with solution for each service type: <svc>" -ForEach @(

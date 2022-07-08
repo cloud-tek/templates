@@ -1,10 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "CloudTek",
-  "classifications": ["Ion", "MicroService.GraphQL"],
-  "identity": "Ion.MicroService.GraphQL",
-  "name": "Ion MicroService GraphQL API",
-  "shortName": "ion-microservice-graphql-api",
+  "classifications": ["Hive", "MicroService.GraphQL"],
+  "identity": "Hive.MicroService.GraphQL",
+  "name": "Hive MicroService GraphQL API",
+  "shortName": "hive-microservice-graphql-api",
   "tags": {
     "language": "C#",
     "type": "project"

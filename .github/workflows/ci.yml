@@ -45,7 +45,7 @@ jobs:
           <packageSources>
             <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
             <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED_CLOUDTEK }}" protocolVersion="3"/>
-            <add key="nuget.ionizd.io" value="${{ secrets.NUGET_FEED_IONIZD }}" protocolVersion="3"/>
+            <add key="nuget.cloud-tek.io" value="${{ secrets.NUGET_FEED_IONIZD }}" protocolVersion="3"/>
           </packageSources>
           <packageRestore>
             <add key="enabled" value="True" />
@@ -63,10 +63,10 @@ jobs:
               <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
               <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
             </nuget.cloudtek.io>
-            <nuget.ionizd.io>
+            <nuget.cloud-tek.io>
               <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
               <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
-            </nuget.ionizd.io>
+            </nuget.cloud-tek.io>
           </packageSourceCredentials>
         </configuration>
         "@
@@ -117,7 +117,7 @@ jobs:
           <packageSources>
             <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
             <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED_CLOUDTEK }}" protocolVersion="3"/>
-            <add key="nuget.ionizd.io" value="${{ secrets.NUGET_FEED_IONIZD }}" protocolVersion="3"/>
+            <add key="nuget.cloud-tek.io" value="${{ secrets.NUGET_FEED_IONIZD }}" protocolVersion="3"/>
           </packageSources>
           <packageRestore>
             <add key="enabled" value="True" />
@@ -135,10 +135,10 @@ jobs:
               <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
               <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
             </nuget.cloudtek.io>
-            <nuget.ionizd.io>
+            <nuget.cloud-tek.io>
               <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
               <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
-            </nuget.ionizd.io>
+            </nuget.cloud-tek.io>
           </packageSourceCredentials>
         </configuration>
         "@
@@ -196,7 +196,7 @@ jobs:
           <packageSources>
             <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
             <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED_CLOUDTEK }}" protocolVersion="3"/>
-            <add key="nuget.ionizd.io" value="${{ secrets.NUGET_FEED_IONIZD }}" protocolVersion="3"/>
+            <add key="nuget.cloud-tek.io" value="${{ secrets.NUGET_FEED_IONIZD }}" protocolVersion="3"/>
           </packageSources>
           <packageRestore>
             <add key="enabled" value="True" />
@@ -214,10 +214,10 @@ jobs:
               <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
               <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
             </nuget.cloudtek.io>
-            <nuget.ionizd.io>
+            <nuget.cloud-tek.io>
               <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
               <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
-            </nuget.ionizd.io>
+            </nuget.cloud-tek.io>
           </packageSourceCredentials>
         </configuration>
         "@

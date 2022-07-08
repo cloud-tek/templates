@@ -1,10 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "CloudTek",
-  "classifications": ["Ion", "MicroService.Grpc"],
-  "identity": "Ion.MicroService.Grpc",
-  "name": "Ion MicroService Grpc API",
-  "shortName": "ion-microservice-grpc-api",
+  "classifications": ["Hive", "MicroService.Grpc"],
+  "identity": "Hive.MicroService.Grpc",
+  "name": "Hive MicroService Grpc API",
+  "shortName": "hive-microservice-grpc-api",
   "tags": {
     "language": "C#",
     "type": "project"

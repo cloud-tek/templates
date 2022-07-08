@@ -10,8 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Ion.MicroServices.GraphQL" Version="0.*" />
-        <PackageReference Include="Ion.Analyzers" Version="0.*" />
+        <PackageReference Include="Hive.MicroServices.GraphQL" Version="0.*" />
+        <PackageReference Include="Hive.Analyzers" Version="0.*" />
     </ItemGroup>
 
 </Project>

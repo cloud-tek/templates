@@ -28,35 +28,37 @@ function Start-TemplateRenderingTest {
   )
 
   Remove-Item -Path "$Root/tests/$Type" -Recurse -Force -ErrorAction Ignore;
-  dotnet new -i "$Root/$Type"
+  dotnet new -i "$Root/$Type" --force
 
   Push-Location $Root;
   New-Item -Name "tests/$Type" -ItemType "directory" -Force;
   Pop-Location;
 
-  Push-Location "$Root/tests/$Type";
+  try {
+    Push-Location "$Root/tests/$Type";
 
-  if ($true -eq $solution) {
-    dotnet new hive-$Type --project "Project" --service "Service"
+    if ($true -eq $solution) {
+      dotnet new hive-$Type --project "Project" --service "Service"
 
-    Test-Path "$Root/tests/$Type/Project.Service.sln" | Should -Be $true -Because ".sln file should exist";
-    Test-Path "$Root/tests/$Type/.editorconfig" | Should -Be $true -Because ".editoconfig file should exist";
-    Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $true -Because "license file should exist";
-    Test-Path "$Root/tests/$Type/readme.md" | Should -Be $true -Because "readme.md should exist";
-    Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
+      Test-Path "$Root/tests/$Type/Project.Service.sln" | Should -Be $true -Because ".sln file should exist";
+      Test-Path "$Root/tests/$Type/.editorconfig" | Should -Be $true -Because ".editoconfig file should exist";
+      Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $true -Because "license file should exist";
+      Test-Path "$Root/tests/$Type/readme.md" | Should -Be $true -Because "readme.md should exist";
+      Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
+    }
+    else {
+      dotnet new hive-$Type --project "Project" --service "Service" --solution false
+
+      Test-Path "$Root/tests/$Type/Project.Service.sln" | Should -Be $false -Because ".sln file should not exist";
+      Test-Path "$Root/tests/$Type/.editorconfig" | Should -Be $false -Because ".editoconfig file should not exist";
+      Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $false -Because "license file should not exist";
+      Test-Path "$Root/tests/$Type/readme.md" | Should -Be $false -Because "readme.md should not exist";
+      Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
+    }
+  } finally {
+
+    Pop-Location;
   }
-  else {
-    dotnet new hive-$Type --project "Project" --service "Service" --solution false
-
-    Test-Path "$Root/tests/$Type/Project.Service.sln" | Should -Be $false -Because ".sln file should not exist";
-    Test-Path "$Root/tests/$Type/.editorconfig" | Should -Be $false -Because ".editoconfig file should not exist";
-    Test-Path "$Root/tests/$Type/LICENSE" | Should -Be $false -Because "license file should not exist";
-    Test-Path "$Root/tests/$Type/readme.md" | Should -Be $false -Because "readme.md should not exist";
-    Test-Path "$Root/tests/$Type/src" | Should -Be $true -Because "service folder should exist";
-  }
-
-  Pop-Location;
-
   Test-Path "tests/$Type/.idea" | Should -Be $false -Because "JetBrains IDE folders should not exist";
 }
 

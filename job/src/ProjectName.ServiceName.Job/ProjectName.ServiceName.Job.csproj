@@ -3,14 +3,14 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net7.0</TargetFramework>
-        <LangVersion>10.0</LangVersion>
+        <LangVersion>11.0</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Hive.MicroServices.Job" Version="0.*" />
-        <PackageReference Include="Hive.Analyzers" Version="0.*" />
+        <PackageReference Include="Hive.MicroServices.Job" Version="7.*" />
+        <PackageReference Include="Hive.Analyzers" Version="7.*" />
     </ItemGroup>
 </Project>

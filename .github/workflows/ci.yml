@@ -31,7 +31,7 @@ jobs:
         # - windows-latest
         - macos-latest
         dotnet-version:
-        - '6.0.100'
+        - '7.0.101'
     steps:
     - uses: actions/checkout@v2
       with:
@@ -103,7 +103,7 @@ jobs:
         # - windows-latest
         - macos-latest
         dotnet-version:
-        - '6.0.100'
+        - '7.0.101'
     steps:
     - uses: actions/checkout@v2
       with:
@@ -182,7 +182,7 @@ jobs:
         # - windows-latest
         - macos-latest
         dotnet-version:
-        - '6.0.100'
+        - '7.0.101'
     steps:
     - uses: actions/checkout@v2
       with:

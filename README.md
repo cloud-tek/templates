@@ -18,7 +18,7 @@ This repository contains a selection of Hive service templates
 
 **Service creation:**
 ```bash
-dotnet new hive-job --project <ProjectName> --service <ServiceName> --solution (optional) 
+dotnet new hive-job -pr <ProjectName> -svc <ServiceName> --solution (optional) 
 ```
 
 ### hive-microservice
@@ -31,7 +31,7 @@ dotnet new hive-job --project <ProjectName> --service <ServiceName> --solution (
 
 **Service creation:**
 ```bash
-dotnet new hive-microservice --project <ProjectName> --service <ServiceName> --solution (optional) 
+dotnet new hive-microservice -pr <ProjectName> -svc <ServiceName> --solution (optional) 
 ```
 
 ### hive-microservice-api
@@ -42,7 +42,7 @@ dotnet new hive-microservice --project <ProjectName> --service <ServiceName> --s
 
 **Service creation:**
 ```bash
-dotnet new hive-microservice-api --project <ProjectName> --service <ServiceName> --solution (optional) 
+dotnet new hive-microservice-api -pr <ProjectName> -svc <ServiceName> --solution (optional) 
 ```
 
 ### hive-microservice-minimal-api
@@ -53,7 +53,7 @@ dotnet new hive-microservice-api --project <ProjectName> --service <ServiceName>
 
 **Service creation:**
 ```bash
-dotnet new hive-microservice-minimal-api --project <ProjectName> --service <ServiceName> --solution (optional) 
+dotnet new hive-microservice-minimal-api -pr <ProjectName> -svc <ServiceName> --solution (optional) 
 ```
 
 ### hive-microservice-graphql-api
@@ -68,7 +68,7 @@ dotnet new hive-microservice-minimal-api --project <ProjectName> --service <Serv
 
 **Service creation:**
 ```bash
-dotnet new hive-microservice-graphql-api --project <ProjectName> --service <ServiceName> --solution (optional) 
+dotnet new hive-microservice-graphql-api -pr <ProjectName> -svc <ServiceName> --solution (optional) 
 ```
 
 ### hive-microservice-grpc-api
@@ -79,7 +79,7 @@ dotnet new hive-microservice-graphql-api --project <ProjectName> --service <Serv
 
 **Service creation:**
 ```bash
-dotnet new hive-microservice-grpc-api --project <ProjectName> --service <ServiceName> --solution (optional) 
+dotnet new hive-microservice-grpc-api -pr <ProjectName> -svc <ServiceName> --solution (optional) 
 ```
 
 ### hive-microservice-minimal-grpc-api
@@ -90,5 +90,5 @@ dotnet new hive-microservice-grpc-api --project <ProjectName> --service <Service
 
 **Service creation:**
 ```bash
-dotnet new hive-microservice-minimal-grpc-api --project <ProjectName> --service <ServiceName> --solution (optional) 
+dotnet new hive-microservice-minimal-grpc-api -pr <ProjectName> -svc <ServiceName> --solution (optional) 
 ```

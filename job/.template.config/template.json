@@ -16,7 +16,7 @@
       "datatype": "text",
       "replaces": "ProjectName",
       "fileRename": "ProjectName",
-      "defaultValue": "Ionizd"
+      "defaultValue": "CloudTek"
     },
     "projectLowercase": {
       "type": "generated",

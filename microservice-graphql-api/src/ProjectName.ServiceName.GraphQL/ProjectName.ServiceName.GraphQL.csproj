@@ -2,16 +2,16 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
-        <LangVersion>10.0</LangVersion>
+        <TargetFramework>net7.0</TargetFramework>
+        <LangVersion>11.0</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Hive.MicroServices.GraphQL" Version="0.*" />
-        <PackageReference Include="Hive.Analyzers" Version="0.*" />
+        <PackageReference Include="Hive.MicroServices.GraphQL" Version="7.*" />
+        <PackageReference Include="Hive.Analyzers" Version="7.*" />
     </ItemGroup>
 
 </Project>

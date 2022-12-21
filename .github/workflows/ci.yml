@@ -76,7 +76,7 @@ jobs:
     - name: dotnet tool restore
       run: dotnet tool restore
       shell: bash
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/setup-dotnet@v3
       name: dotnet installer
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
@@ -147,7 +147,7 @@ jobs:
     - name: dotnet tool restore
       run: dotnet tool restore
       shell: bash
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/setup-dotnet@v3
       name: dotnet installer
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
@@ -226,7 +226,7 @@ jobs:
     - name: dotnet tool restore
       run: dotnet tool restore
       shell: bash
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/setup-dotnet@v3
       name: dotnet installer
       with:
         dotnet-version: ${{ matrix.dotnet-version }}

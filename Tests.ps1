@@ -1,5 +1,7 @@
 #!/usr/local/bin/pwsh
 
+# Test suite
+
 Import-Module "Pester";
 Import-Module "$PSScriptRoot/scripts/TestSuite.psm1" -Force;
 

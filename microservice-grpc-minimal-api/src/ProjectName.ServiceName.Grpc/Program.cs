@@ -1,5 +1,6 @@
 using Hive;
 using Hive.MicroServices;
+using Hive.MicroServices.Extensions;
 using Hive.MicroServices.Grpc;
 using Microsoft.Extensions.Logging.Abstractions;
 using ProjectName.ServiceName.Grpc.Services;

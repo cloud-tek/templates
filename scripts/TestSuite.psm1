@@ -70,8 +70,7 @@ function Start-TemplateBuildTest {
 
   Remove-Item -Path "$Root/tests/$Type" -Recurse -Force -ErrorAction Ignore;
 
-  & dotnet new -i "$Root/$Type"
-
+  & dotnet new -i "$Root/$Type" --force
 
   Push-Location $Root;
   New-Item -Name "tests/$Type" -ItemType "directory" -Force;

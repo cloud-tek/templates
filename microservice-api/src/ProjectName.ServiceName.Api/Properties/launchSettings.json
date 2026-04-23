@@ -1,8 +1,9 @@
-﻿{  
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
     "ProjectName.ServiceName.Api": {
       "commandName": "Project",
-      "dotnetRunMessages": "true",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5000",
       "launchUrl": "status/liveness",

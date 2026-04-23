@@ -1,5 +1,6 @@
 using Hive.MicroServices;
 using Hive.MicroServices.Api;
+using Hive.MicroServices.Extensions;
 
 var summaries = new[]
 {

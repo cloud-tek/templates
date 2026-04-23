@@ -1,11 +1,11 @@
-﻿{  
-  "profiles": {   
-    "ProjectName.ServiceName.GraphQL": {
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "ProjectName.ServiceName.Grpc": {
       "commandName": "Project",
-      "dotnetRunMessages": "true",
-      "launchBrowser": true,
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
       "applicationUrl": "http://localhost:5000",
-      "launchUrl": "status/liveness",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

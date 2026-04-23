@@ -1,4 +1,5 @@
 using Hive.MicroServices;
+using Hive.MicroServices.Extensions;
 
 var service = new MicroService("ProjectNameLower-ServiceNameLower-svc")
     .ConfigureServices((services, configuration) =>

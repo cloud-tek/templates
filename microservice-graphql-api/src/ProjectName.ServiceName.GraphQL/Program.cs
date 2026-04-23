@@ -1,5 +1,6 @@
 using Hive;
 using Hive.MicroServices;
+using Hive.MicroServices.Extensions;
 using Hive.MicroServices.GraphQL;
 using Microsoft.Extensions.Logging.Abstractions;
 using ProjectName.ServiceName.GraphQL.Graph;

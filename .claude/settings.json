@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pwsh -NoProfile -Command \"Invoke-Pester -Path ./Templates.Tests.ps1\")"
+    ]
+  },
+  "includeCoAuthoredBy": false
+}

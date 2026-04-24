@@ -44,3 +44,17 @@ Describe -tag "template-build" -Name "template building tests" {
     Start-TemplateBuildTest -Type $SVC -Root $PSScriptRoot;
   }
 }
+
+Describe -tag "template-run" -Name "template run tests" {
+  It "Should start, receive SIGTERM, and exit 0 for service <svc>" -ForEach @(
+    @{ "SVC" = "job" },
+    @{ "SVC" = "microservice" },
+    @{ "SVC" = "microservice-api" },
+    @{ "SVC" = "microservice-minimal-api" },
+    @{ "SVC" = "microservice-graphql-api" },
+    @{ "SVC" = "microservice-grpc-api" },
+    @{ "SVC" = "microservice-grpc-minimal-api" }
+  ) {
+    Start-TemplateRunTest -Type $SVC -Root $PSScriptRoot;
+  }
+}

@@ -93,7 +93,7 @@ The lowercase variants are used in runtime service identifiers (see e.g. `new Mi
 Project folder + `.csproj` name suffix differs per template and is encoded in [scripts/TestSuite.psm1](scripts/TestSuite.psm1) (`$csprojSuffix`). When adding/renaming a template, update both `template.json` and `TestSuite.psm1` so the build test can locate the rendered project.
 
 ### Hive dependencies
-Templates reference `Hive.MicroServices`, `Hive.MicroServices.Api`, `Hive.MicroServices.Job`, `Hive.MicroServices.GraphQL`, `Hive.MicroServices.Grpc` from nuget.org. CI additionally wires up **private Cloud-Tek NuGet feeds** (`nuget.cloudtek.io`, `nuget.cloud-tek.io`) for transitive deps — see the runtime-generated `nuget.config` in [.github/workflows/ci.yml](.github/workflows/ci.yml) built from repo secrets (`NUGET_FEED_*`, `NUGET_USERNAME`, `NUGET_PASSWORD`). Local restore outside CI usually needs those credentials too.
+Templates reference `Hive.MicroServices`, `Hive.MicroServices.Api`, `Hive.MicroServices.Job`, `Hive.MicroServices.GraphQL`, `Hive.MicroServices.Grpc` from nuget.org. CI additionally wires up the private **Cloud-Tek NuGet feed** (`nuget.cloudtek.io`) for transitive deps — see the runtime-generated `nuget.config` in [.github/workflows/ci.yml](.github/workflows/ci.yml) built from repo secrets (`NUGET_FEED_CLOUDTEK`, `NUGET_USERNAME`, `NUGET_PASSWORD`). Local restore outside CI usually needs those credentials too.
 
 `Hive.Analyzers` is **not** referenced (removed in the Hive 10 upgrade — no 10.x release of that package exists). Don't re-add it unless a 10.x ships.
 

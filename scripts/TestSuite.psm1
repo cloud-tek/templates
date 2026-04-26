@@ -105,8 +105,8 @@ function Start-TemplateRunTest {
   param(
     [string]$Type,
     [string]$Root,
-    [int]$StartupTimeoutSec = 30,
-    [int]$ShutdownTimeoutSec = 45
+    [int]$StartupTimeoutSec = 15,
+    [int]$ShutdownTimeoutSec = 30
   )
 
   $traceLog = "$Root/tests/run-trace.log";

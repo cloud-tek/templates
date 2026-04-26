@@ -31,7 +31,7 @@ jobs:
         # - windows-latest
         - macos-latest
         dotnet-version:
-        - '10.0.x'
+        - '10.0.100'
     steps:
     - uses: actions/checkout@v3
       with:
@@ -44,7 +44,6 @@ jobs:
         <configuration>
           <packageSources>
             <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
-            <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED_CLOUDTEK }}" protocolVersion="3"/>
           </packageSources>
           <packageRestore>
             <add key="enabled" value="True" />
@@ -57,12 +56,12 @@ jobs:
             <add key="format" value="0" />
             <add key="disabled" value="False" />
           </packageManagement>
-          <packageSourceCredentials>
+          <!--<packageSourceCredentials>
             <nuget.cloudtek.io>
-              <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
-              <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
+              <add key="Username" value="..."/>
+              <add key="ClearTextPassword" value="..." />
             </nuget.cloudtek.io>
-          </packageSourceCredentials>
+          </packageSourceCredentials>-->
         </configuration>
         "@
 
@@ -111,7 +110,6 @@ jobs:
         <configuration>
           <packageSources>
             <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
-            <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED_CLOUDTEK }}" protocolVersion="3"/>
           </packageSources>
           <packageRestore>
             <add key="enabled" value="True" />
@@ -124,12 +122,12 @@ jobs:
             <add key="format" value="0" />
             <add key="disabled" value="False" />
           </packageManagement>
-          <packageSourceCredentials>
+          <!--<packageSourceCredentials>
             <nuget.cloudtek.io>
-              <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
-              <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
+              <add key="Username" value="..."/>
+              <add key="ClearTextPassword" value="..." />
             </nuget.cloudtek.io>
-          </packageSourceCredentials>
+          </packageSourceCredentials>-->
         </configuration>
         "@
 
@@ -144,21 +142,23 @@ jobs:
     - name: Perform a Pester test from the Templates.Tests.ps1 file
       shell: pwsh
       run: |
-        Install-Module Pester -Force;
-        $p = Invoke-Pester ${{ github.workspace }}/Templates.Tests.ps1 `
-          -Tag "template-rendering" `
-          -OutputFile ${{ github.workspace }}/TestResults.xml `
-          -OutputFormat JUnitXml `
-          -Passthru;
-        $p | Export-JUnitReport -Path ${{ github.workspace }}/TestResults.xml
-        if ($p.FailedCount -gt 0) {
-          exit 1;
-        }
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        Install-Module Pester -Force
+        $cfg = New-PesterConfiguration
+        $cfg.Run.Path = '${{ github.workspace }}/Templates.Tests.ps1'
+        $cfg.Filter.Tag = 'template-rendering'
+        $cfg.TestResult.Enabled = $true
+        $cfg.TestResult.OutputFormat = 'JUnitXml'
+        $cfg.TestResult.OutputPath = '${{ github.workspace }}/TestResults.xml'
+        $cfg.Run.PassThru = $true
+        $p = Invoke-Pester -Configuration $cfg
+        if ($p.FailedCount -gt 0) { exit 1 }
+    - name: Publish Pester results
+      uses: dorny/test-reporter@v1
       if: always()
       with:
-        files: ${{ github.workspace }}/TestResults.*.xml
+        name: ${{ github.job }} (${{ matrix.os }})
+        path: ${{ github.workspace }}/TestResults.xml
+        reporter: java-junit
 
   post-build-templates:
     name: ${{ matrix.dotnet-version }} on ${{ matrix.os }}
@@ -185,7 +185,6 @@ jobs:
         <configuration>
           <packageSources>
             <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
-            <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED_CLOUDTEK }}" protocolVersion="3"/>
           </packageSources>
           <packageRestore>
             <add key="enabled" value="True" />
@@ -198,12 +197,12 @@ jobs:
             <add key="format" value="0" />
             <add key="disabled" value="False" />
           </packageManagement>
-          <packageSourceCredentials>
+          <!---<packageSourceCredentials>
             <nuget.cloudtek.io>
-              <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
-              <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
+              <add key="Username" value="..."/>
+              <add key="ClearTextPassword" value="..." />
             </nuget.cloudtek.io>
-          </packageSourceCredentials>
+          </packageSourceCredentials>-->
         </configuration>
         "@
 
@@ -218,21 +217,23 @@ jobs:
     - name: Perform a Pester test from the Templates.Tests.ps1 file
       shell: pwsh
       run: |
-        Install-Module Pester -Force;
-        $p = Invoke-Pester ${{ github.workspace }}/Templates.Tests.ps1 `
-          -Tag "template-build" `
-          -OutputFile ${{ github.workspace }}/TestResults.xml `
-          -OutputFormat JUnitXml `
-          -Passthru;
-        $p | Export-JUnitReport -Path ${{ github.workspace }}/TestResults.xml
-        if ($p.FailedCount -gt 0) {
-          exit 1;
-        }
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        Install-Module Pester -Force
+        $cfg = New-PesterConfiguration
+        $cfg.Run.Path = '${{ github.workspace }}/Templates.Tests.ps1'
+        $cfg.Filter.Tag = 'template-build'
+        $cfg.TestResult.Enabled = $true
+        $cfg.TestResult.OutputFormat = 'JUnitXml'
+        $cfg.TestResult.OutputPath = '${{ github.workspace }}/TestResults.xml'
+        $cfg.Run.PassThru = $true
+        $p = Invoke-Pester -Configuration $cfg
+        if ($p.FailedCount -gt 0) { exit 1 }
+    - name: Publish Pester results
+      uses: dorny/test-reporter@v1
       if: always()
       with:
-        files: ${{ github.workspace }}/TestResults.*.xml
+        name: ${{ github.job }} (${{ matrix.os }})
+        path: ${{ github.workspace }}/TestResults.xml
+        reporter: java-junit
 
   run-templates:
     name: ${{ matrix.dotnet-version }} on ${{ matrix.os }}
@@ -259,7 +260,6 @@ jobs:
         <configuration>
           <packageSources>
             <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
-            <add key="nuget.cloudtek.io" value="${{ secrets.NUGET_FEED_CLOUDTEK }}" protocolVersion="3"/>
           </packageSources>
           <packageRestore>
             <add key="enabled" value="True" />
@@ -272,12 +272,12 @@ jobs:
             <add key="format" value="0" />
             <add key="disabled" value="False" />
           </packageManagement>
-          <packageSourceCredentials>
+          <!--<packageSourceCredentials>
             <nuget.cloudtek.io>
-              <add key="Username" value="${{ secrets.NUGET_USERNAME }}"/>
-              <add key="ClearTextPassword" value="${{ secrets.NUGET_PASSWORD }}" />
+              <add key="Username" value="..."/>
+              <add key="ClearTextPassword" value="..." />
             </nuget.cloudtek.io>
-          </packageSourceCredentials>
+          </packageSourceCredentials>-->
         </configuration>
         "@
 
@@ -292,16 +292,16 @@ jobs:
     - name: Perform a Pester test from the Templates.Tests.ps1 file
       shell: pwsh
       run: |
-        Install-Module Pester -Force;
-        $p = Invoke-Pester ${{ github.workspace }}/Templates.Tests.ps1 `
-          -Tag "template-run" `
-          -OutputFile ${{ github.workspace }}/TestResults.xml `
-          -OutputFormat JUnitXml `
-          -Passthru;
-        $p | Export-JUnitReport -Path ${{ github.workspace }}/TestResults.xml
-        if ($p.FailedCount -gt 0) {
-          exit 1;
-        }
+        Install-Module Pester -Force
+        $cfg = New-PesterConfiguration
+        $cfg.Run.Path = '${{ github.workspace }}/Templates.Tests.ps1'
+        $cfg.Filter.Tag = 'template-run'
+        $cfg.TestResult.Enabled = $true
+        $cfg.TestResult.OutputFormat = 'JUnitXml'
+        $cfg.TestResult.OutputPath = '${{ github.workspace }}/TestResults.xml'
+        $cfg.Run.PassThru = $true
+        $p = Invoke-Pester -Configuration $cfg
+        if ($p.FailedCount -gt 0) { exit 1 }
     - name: Upload template run logs on failure
       if: failure()
       uses: actions/upload-artifact@v4
@@ -312,8 +312,10 @@ jobs:
           ${{ github.workspace }}/tests/**/stdout.log
           ${{ github.workspace }}/tests/**/stderr.log
         if-no-files-found: ignore
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action/composite@v1
+    - name: Publish Pester results
+      uses: dorny/test-reporter@v1
       if: always()
       with:
-        files: ${{ github.workspace }}/TestResults.*.xml
+        name: ${{ github.job }} (${{ matrix.os }})
+        path: ${{ github.workspace }}/TestResults.xml
+        reporter: java-junit

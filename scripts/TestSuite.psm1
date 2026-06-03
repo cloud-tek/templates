@@ -8,6 +8,7 @@ Import-Module "Pester";
   "microservice-graphql-api"    = "graphql-api"
   "microservice-grpc-api"         = "grpc-api"
   "microservice-grpc-minimal-api" = "grpc-api"
+  "microservice-mcp"              = "mcp"
 };
 
 [hashtable]$csprojSuffix = @{
@@ -18,6 +19,7 @@ Import-Module "Pester";
   "microservice-graphql-api"    = "GraphQL"
   "microservice-grpc-api"         = "Grpc"
   "microservice-grpc-minimal-api" = "Grpc"
+  "microservice-mcp"              = "Mcp"
 };
 
 function Start-TemplateRenderingTest {

@@ -10,12 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Grpc.AspNetCore" Version="2.80.0" />
-    </ItemGroup>
-
-
-    <ItemGroup>
-        <PackageReference Include="Hive.MicroServices.Grpc" Version="10.*" />
+        <PackageReference Include="Hive.MicroServices.Mcp" Version="10.*" />
     </ItemGroup>
 
 </Project>

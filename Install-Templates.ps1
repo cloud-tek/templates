@@ -9,6 +9,7 @@ $ErrorActionPreference = "Stop"
   "microservice-graphql-api"
   "microservice-grpc-api"
   "microservice-grpc-minimal-api"
+  "microservice-mcp"
 );
 
 $templates | % {

@@ -14,6 +14,7 @@ Templates:
 - `microservice-graphql-api` → `hive-microservice-graphql-api` (HotChocolate)
 - `microservice-grpc-api` → `hive-microservice-grpc-api` (gRPC, `.proto`-first)
 - `microservice-grpc-minimal-api` → `hive-microservice-grpc-minimal-api` (gRPC, code-first)
+- `microservice-mcp` → `hive-microservice-mcp` (Model Context Protocol server, attribute-discovered tools)
 
 ## Common commands
 
@@ -28,7 +29,7 @@ dotnet new -i ./<template-folder>
 dotnet new hive-<template-name> -pr <ProjectName> -svc <ServiceName> [--solution false]
 ```
 
-Run the full Pester test suite (runs against all 7 templates):
+Run the full Pester test suite (runs against all 8 templates):
 ```pwsh
 ./Tests.ps1
 ```

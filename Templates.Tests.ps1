@@ -13,7 +13,8 @@ Describe -tag "template-rendering" -Name "template-rendering tests" {
     @{ "SVC" = "microservice-minimal-api" },
     @{ "SVC" = "microservice-graphql-api" },
     @{ "SVC" = "microservice-grpc-api" },
-    @{ "SVC" = "microservice-grpc-minimal-api" }
+    @{ "SVC" = "microservice-grpc-minimal-api" },
+    @{ "SVC" = "microservice-mcp" }
   ) {
     Start-TemplateRenderingTest -Type $SVC -Solution $true -Root $PSScriptRoot;
   }
@@ -25,7 +26,8 @@ Describe -tag "template-rendering" -Name "template-rendering tests" {
     @{ "SVC" = "microservice-minimal-api" },
     @{ "SVC" = "microservice-graphql-api" },
     @{ "SVC" = "microservice-grpc-api" },
-    @{ "SVC" = "microservice-grpc-minimal-api" }
+    @{ "SVC" = "microservice-grpc-minimal-api" },
+    @{ "SVC" = "microservice-mcp" }
   ) {
     Start-TemplateRenderingTest -Type $SVC -Solution $false -Root $PSScriptRoot;
   }
@@ -39,7 +41,8 @@ Describe -tag "template-build" -Name "template building tests" {
     @{ "SVC" = "microservice-minimal-api" },
     @{ "SVC" = "microservice-graphql-api" },
     @{ "SVC" = "microservice-grpc-api" },
-    @{ "SVC" = "microservice-grpc-minimal-api" }
+    @{ "SVC" = "microservice-grpc-minimal-api" },
+    @{ "SVC" = "microservice-mcp" }
   ) {
     Start-TemplateBuildTest -Type $SVC -Root $PSScriptRoot;
   }
@@ -53,7 +56,8 @@ Describe -tag "template-run" -Name "template run tests" {
     @{ "SVC" = "microservice-minimal-api" },
     @{ "SVC" = "microservice-graphql-api" },
     @{ "SVC" = "microservice-grpc-api" },
-    @{ "SVC" = "microservice-grpc-minimal-api" }
+    @{ "SVC" = "microservice-grpc-minimal-api" },
+    @{ "SVC" = "microservice-mcp" }
   ) {
     Start-TemplateRunTest -Type $SVC -Root $PSScriptRoot;
   }

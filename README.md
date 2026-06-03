@@ -92,3 +92,18 @@ dotnet new hive-microservice-grpc-api -pr <ProjectName> -svc <ServiceName> --sol
 ```bash
 dotnet new hive-microservice-minimal-grpc-api -pr <ProjectName> -svc <ServiceName> --solution (optional) 
 ```
+
+### hive-microservice-mcp
+
+> **Description**
+>
+> The `hive-microservice-mcp` is a long-running [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server, which exposes tools, prompts and resources to LLM clients and agents over streamable HTTP. Tool handlers are dependency-injected and discovered via `[McpServerTool]` attributes.
+>
+> Primary uses:
+> - AI tool servers
+> - Agentic integrations exposing data/actions to LLM clients
+
+**Service creation:**
+```bash
+dotnet new hive-microservice-mcp -pr <ProjectName> -svc <ServiceName> --solution (optional) 
+```

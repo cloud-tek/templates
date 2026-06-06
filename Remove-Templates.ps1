@@ -14,5 +14,4 @@ $ErrorActionPreference = "Stop"
 
 $templates | % {
   & dotnet new uninstall "$PSScriptRoot/$_"
-  & dotnet new install "$PSScriptRoot/$_"
 }
